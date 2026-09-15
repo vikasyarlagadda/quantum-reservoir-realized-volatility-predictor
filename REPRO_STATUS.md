@@ -45,8 +45,18 @@ The 120-month comparison has all 104 months. The final twelve months have no fai
 - [Validation receipt](results/validation_receipt.json)
 - [Audit](MODERNIZATION_AUDIT.md), [assumptions](ASSUMPTIONS.md), [run order](RUN_ORDER.md)
 
-Executed model sources match commit `6e7ddf0`. The shared repository's newer
-commits were merged, and its exact-simulator change was verified to be whitespace
-only. Per-run execution revision receipts document strict resume requirements.
+Executed model sources match commit `6e7ddf0`. The subsequent exact-simulator
+change was verified to be whitespace only. Per-run execution revision receipts
+document strict resume requirements.
 Raw downloads, caches, checkpoint files, and diagnostic runs are preserved locally;
 publication includes derived data, provenance, complete aggregate results and reports.
+
+## Personal repository review
+
+Development and publication now use only
+`vikasyarlagadda/quantum-reservoir-realized-volatility-predictor`. The unwanted
+external pull request was closed and its feature branch deleted; the external
+remote was removed. Historical source attribution and immutable execution
+receipts are preserved. The personal PR review rechecked forecast alignment,
+frozen scaling, loss formulas, failure handling, and saved-artifact validation.
+All ten tests and the dependency consistency check passed again before merge.

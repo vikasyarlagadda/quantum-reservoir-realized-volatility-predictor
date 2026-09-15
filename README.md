@@ -10,6 +10,16 @@ last twelve months. It uses current public daily prices, seven causal market
 features, five seeds, and both 571-month and 120-month rolling training windows.
 The quantum models run locally with ideal simulated dynamics.
 
+## Repository and contributions
+
+The canonical development repository is
+[vikasyarlagadda/quantum-reservoir-realized-volatility-predictor](https://github.com/vikasyarlagadda/quantum-reservoir-realized-volatility-predictor).
+All future branches, pushes, issues, and pull requests belong in this personal
+repository. Configure `origin` to that URL and verify `git remote -v` before
+publishing. Do not add or synchronize another repository without the owner's
+explicit instruction. Existing research attribution and execution provenance
+remain part of the historical record.
+
 ## Read the results
 
 - [Detailed project and modernization audit](MODERNIZATION_AUDIT.md)
@@ -73,7 +83,7 @@ output directory. Training verifies all retained raw/derived snapshot artifacts.
 Raw price downloads remain local because of the provider redistribution terms.
 
 The completed experiments used source commit `6e7ddf0`, verified in each run's
-`execution_revision.json`. The subsequent upstream merge changes only whitespace
+`execution_revision.json`. Subsequent maintenance changes only whitespace
 in the exact simulator and maintains the separate Trotter implementation.
 For strict resume of those original checkpoints, use the recorded source revision
 in a separate checkout. Current source can start a new run in a new output folder.

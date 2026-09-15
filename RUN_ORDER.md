@@ -43,7 +43,7 @@ audit. The final run uses only the v2 snapshot and its frozen configuration.
 ## Source revision and published reports
 
 Both completed experiments used `6e7ddf0`; `execution_revision.json` verifies
-their source hashes against that commit. Later upstream integration changed a
+their source hashes against that commit. Later maintenance changed a
 trailing newline in the exact simulator, with its syntax tree verified identical.
 Strict checkpoint resume therefore requires the recorded revision; new source
 runs use a new output directory. Published reports regenerate from the aggregate
