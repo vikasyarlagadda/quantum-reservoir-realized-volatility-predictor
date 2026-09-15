@@ -1,0 +1,45 @@
+{
+  "as_of": "2026-09-14",
+  "first_session": "1949-12-01",
+  "last_session": "2026-09-14",
+  "last_complete_month": "2026-08-31",
+  "sources": {
+    "yahoo.json": {
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=-633830400&period2=1789430400&interval=1d",
+      "sha256": "cd466ab4141af7ee60783a19c138ee9ee22493f97fe06a8008f6cfe1b9795d3b",
+      "retrieved_at": "2026-09-15T02:04:45.260459661+00:00",
+      "timestamp_note": "raw file creation timestamp; initial validation failed"
+    },
+    "fred.csv": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500",
+      "sha256": "df5e6e554eff291c27982e9a9054f4728e89c00dbfb7c72cc184b7342c707afe",
+      "retrieved_at": "2026-09-15T02:04:45.360948563+00:00",
+      "timestamp_note": "raw file creation timestamp; initial validation failed"
+    }
+  },
+  "rows_daily": 19317,
+  "rows_monthly": 909,
+  "calendar": "XNYS with explicit pre-1970 regular holidays",
+  "features": [
+    "log_rv",
+    "log_rv_3",
+    "log_rv_12",
+    "return",
+    "downside_share",
+    "max_abs_return",
+    "close_range"
+  ],
+  "historical_max_abs_log_difference": 0.030994049599710305,
+  "historical_differences_above_1e-8": 1,
+  "fred_overlap_rows": 2512,
+  "fred_max_price_difference": 5.289843749999818,
+  "corrected_closes": 7,
+  "price_policy": "FRED preferred when overlapping close differs by more than 0.011 index points",
+  "artifacts": {
+    "daily.csv": "136c5f961f571275173f7a4f9f7e3f61053288ae042ce4c6efadc116e31bb34b",
+    "monthly.csv": "e39c27a915a5bfa26b8617f91636e7981a1b9fce5685add3ba4b96ff756356e3",
+    "crosscheck.csv": "ad0c0ed3fba9915d677c901b7efbe995431e5f93cd98eed2d02f1ee0eb43d7c6",
+    "historical_reconciliation.csv": "b4352fd6863d1a663bfd7f149e87f07c962e206383daa1afb5a9e01402091843",
+    "price_corrections.csv": "2c47fd4739fe134c15e5692f043fbf41e1ff4b2bb7487a96f680f2503e5ade8a"
+  }
+}

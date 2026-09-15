@@ -1,0 +1,8 @@
+date,close,fred,absolute_difference,resolution
+2018-11-29,2737.800048828125,2737.76,0.04004882812478172,use FRED index-provider close; original Yahoo payload preserved
+2019-08-12,2882.699951171875,2883.75,1.050048828125,use FRED index-provider close; original Yahoo payload preserved
+2020-05-11,2930.18994140625,2930.32,0.1300585937501637,use FRED index-provider close; original Yahoo payload preserved
+2020-10-02,3348.419921875,3348.44,0.02007812500005457,use FRED index-provider close; original Yahoo payload preserved
+2020-10-05,3408.60009765625,3408.63,0.02990234375010914,use FRED index-provider close; original Yahoo payload preserved
+2020-10-06,3360.969970703125,3360.95,0.0199707031251819,use FRED index-provider close; original Yahoo payload preserved
+2021-08-11,4442.41015625,4447.7,5.289843749999818,use FRED index-provider close; original Yahoo payload preserved

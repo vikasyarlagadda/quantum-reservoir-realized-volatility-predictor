@@ -1,0 +1,15 @@
+test_aggregation_and_incomplete_month (test_study.StudyTests.test_aggregation_and_incomplete_month) ... ok
+test_bootstrap_reproducibility (test_study.StudyTests.test_bootstrap_reproducibility) ... ok
+test_future_does_not_change_past (test_study.StudyTests.test_future_does_not_change_past) ... ok
+test_manifest_mismatch (test_study.StudyTests.test_manifest_mismatch) ... ok
+test_reject_missing_duplicate_invalid (test_study.StudyTests.test_reject_missing_duplicate_invalid) ... ok
+test_report_rejects_wrong_actual_and_missing_forecast (test_study.StudyTests.test_report_rejects_wrong_actual_and_missing_forecast) ... ok
+test_scaling_roundtrip_and_unclipped_target (test_study.StudyTests.test_scaling_roundtrip_and_unclipped_target) ... ok
+test_seeded_lstm_resume_order (test_study.StudyTests.test_seeded_lstm_resume_order) ... ok
+test_sequence_alignment (test_study.StudyTests.test_sequence_alignment) ... ok
+test_variance_qlike_and_direction (test_study.StudyTests.test_variance_qlike_and_direction) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.818s
+
+OK

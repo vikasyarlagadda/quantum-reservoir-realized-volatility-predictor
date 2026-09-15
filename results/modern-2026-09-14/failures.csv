@@ -1,0 +1,3 @@
+run_id,configuration,model,seed,window,target_month,forecast_origin,training_start,training_end,actual_log_rv,previous_log_rv,predicted_log_rv,status,warnings,seconds,error
+0a8ac71748b632f87da5fded013ca670ea8652daa0eca3ea04089ef5c432f285,modern,ARMAX,0,571,2019-01-31,2018-12-31,1971-06-30,2018-12-31,-2.907765767652444,-2.497267791338526,,failed,,0.5132754170044791,RuntimeError: ARMAX optimizer did not converge
+0a8ac71748b632f87da5fded013ca670ea8652daa0eca3ea04089ef5c432f285,modern,ARMAX,0,571,2020-08-31,2020-07-31,1973-01-31,2020-07-31,-3.605902901033218,-3.218790749890995,,failed,,0.5747580830065999,RuntimeError: ARMAX optimizer did not converge

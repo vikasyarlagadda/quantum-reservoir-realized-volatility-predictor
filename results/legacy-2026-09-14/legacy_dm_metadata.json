@@ -1,0 +1,18 @@
+{
+  "model_order": [
+    "QR1",
+    "QR2",
+    "HAR",
+    "HARX",
+    "AR3",
+    "AR1",
+    "ARMAX",
+    "LSTM",
+    "LSTMX",
+    "CRL",
+    "CRLX"
+  ],
+  "triangle": "upper only; blank entries were not independent tests",
+  "positive_statistic": "row model has higher squared forecast loss than column model",
+  "source": "fresh master notebook execution; historical normalized target convention retained"
+}

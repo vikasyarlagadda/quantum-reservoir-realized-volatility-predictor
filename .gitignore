@@ -43,3 +43,23 @@ predict_results.csv
 /*_model.png
 /dm_stat.csv
 /p_value.csv
+
+# Recomputable quantum operators and reservoir features. These remain on disk;
+# manifests/checkpoints/results are retained. See MODERNIZATION_AUDIT.md.
+results/*/cache/
+.cache/
+
+# Raw provider payloads/daily prices stay local; publish retrieval provenance,
+# derived monthly features and research results (see MODERNIZATION_AUDIT.md).
+data/snapshots/*/yahoo.json
+data/snapshots/*/fred.csv
+data/snapshots/*/daily.csv
+data/snapshots/*/crosscheck.csv
+data/snapshots/2026-09-14/
+
+# Preserve diagnostic runs and resumable per-origin records locally. Published
+# aggregate forecasts carry all model/origin results and regenerate reports.
+results/modern-pilot*/
+results/validation-*/
+results/*/checkpoints/
+results/legacy-2026-09-14/workspace/

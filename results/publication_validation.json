@@ -1,0 +1,15 @@
+{
+  "no_raw_prices": true,
+  "no_checkpoints": true,
+  "portable_report_regenerated": true,
+  "byte_identical_artifacts": [
+    "predictions.csv",
+    "metrics.csv",
+    "metrics_by_seed.csv",
+    "mcs.csv",
+    "loss_difference_ci.csv",
+    "last12_forecasts.csv",
+    "unscored_forecasts.csv"
+  ],
+  "source": "published aggregate predictions with checksum receipt"
+}

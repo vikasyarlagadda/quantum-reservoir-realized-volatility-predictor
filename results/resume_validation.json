@@ -1,0 +1,7 @@
+{
+  "forecasts_compared": 3,
+  "exact_prediction_agreement": true,
+  "first_checkpoint_unchanged": true,
+  "resumed": "results/validation-resume",
+  "uninterrupted": "results/validation-uninterrupted"
+}

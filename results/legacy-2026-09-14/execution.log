@@ -1,0 +1,418 @@
+Loaded Data.CSV: 816 rows, 15 columns
+Written: data/Data_raw.csv
+  DP: p=0.0654 > 0.05 -> differenced as diff_DP
+  EP: p=0.0042 <= 0.05 -> kept as-is
+  MKT: p=0.0000 <= 0.05 -> kept as-is
+  SMB: p=0.0000 <= 0.05 -> kept as-is
+  HML: p=0.0000 <= 0.05 -> kept as-is
+  TB: p=0.2791 > 0.05 -> differenced as diff_TB
+  DEF: p=0.0083 <= 0.05 -> kept as-is
+  IP: p=0.0000 <= 0.05 -> kept as-is
+  INF: p=0.0132 <= 0.05 -> kept as-is
+  RV: p=0.0000 <= 0.05 -> kept as-is
+  STR: p=0.0000 <= 0.05 -> kept as-is
+  RV_q: p=0.0013 <= 0.05 -> kept as-is
+  RV_a: p=0.0000 <= 0.05 -> kept as-is
+  RV1: p=0.0000 <= 0.05 -> kept as-is
+  RV2: p=0.0000 <= 0.05 -> kept as-is
+Written: data/dff.csv (816 rows, 15 columns)
+Columns: ['diff_DP', 'EP', 'MKT', 'SMB', 'HML', 'diff_TB', 'DEF', 'IP', 'INF', 'RV', 'STR', 'RV_q', 'RV_a', 'RV1', 'RV2']
+============================================================
+Step 1 — Loading Data.CSV
+============================================================
+  Loaded 816 rows, 15 columns.
+
+============================================================
+Step 2 — Loading coupling matrices (coeff_10.jld2)
+============================================================
+  Loaded ms with shape (100, 10, 10).
+
+============================================================
+Step 3 — Building Hamiltonians and evolution operators
+============================================================
+  QR1: building H from ms[0] ...
+  QR1: H shape (1024, 1024), U shape (1024, 1024)
+  QR2: building H from ms[1] ...
+  QR2: H shape (1024, 1024), U shape (1024, 1024)
+
+============================================================
+Step 4 — Running quantum reservoir simulations
+============================================================
+  QR1 (virtual_node=1, 7 features) ...
+    time step 200 / 816
+    time step 400 / 816
+    time step 600 / 816
+    time step 800 / 816
+  QR1 signal shape: (10, 816)
+
+  QR2 (virtual_node=2, 7 features) ...
+    time step 200 / 816
+    time step 400 / 816
+    time step 600 / 816
+    time step 800 / 816
+  QR2 signal shape: (20, 816)
+
+============================================================
+Step 5 — Rolling ridge regression (245 windows × 571 training rows)
+============================================================
+  QR1 readout ...
+  QR2 readout ...
+
+============================================================
+Step 6 — Metrics  (Julia reference values in parentheses)
+============================================================
+
+  --- QR1 ---
+  Hit rate : 0.4408   (Julia: 0.4408)
+  MSE      : 0.1051   (Julia: 0.1051)
+  RMSE     : 0.3242   (Julia: 0.3242)
+  MAE      : 0.2488   (Julia: 0.2488)
+  MAPE     : 8.2824   (Julia: 8.2824)
+  QLIKE    : 1.4428   (Julia: 1.4428)
+
+  --- QR2 ---
+  Hit rate : 0.4571   (Julia: 0.4571)
+  MSE      : 0.1038   (Julia: 0.1038)
+  RMSE     : 0.3221   (Julia: 0.3221)
+  MAE      : 0.2426   (Julia: 0.2426)
+  MAPE     : 8.1731   (Julia: 8.1731)
+  QLIKE    : 1.4004   (Julia: 1.4004)
+
+============================================================
+Step 7 — Saving predictions and verifying against predict_result.csv
+============================================================
+  Saved: results/predictions/qrc_predict_result.csv
+
+  Absolute difference vs predict_result.csv (original Julia output):
+  QR1 — max: 0.000001   mean: 0.000000
+  QR2 — max: 0.000001   mean: 0.000000
+
+  ✓ Replication successful — differences are within numerical tolerance.
+EXECUTING LSTM.ipynb
+CELL 0
+device:cpu
+CELL 1
+CELL 2
+CELL 3
+CELL 4
+CELL 5
+CELL 6
+CELL 7
+CELL 8
+CELL 9
+CELL 10
+CELL 11
+Training LSTM (base, RV-only, hidden=60) ...
+  Window 50/245
+  Window 100/245
+  Window 150/245
+  Window 200/245
+Saved results/predictions/LSTM/lstm60_predictions.csv
+MSE: 0.010439923445497865
+CELL 12
+Training LSTMX (extended, 11 features, hidden=50) ...
+  Window 50/245
+  Window 100/245
+  Window 150/245
+  Window 200/245
+Saved results/predictions/LSTM/lstmx50_predictions.csv
+MSE: 0.008790850026005078
+CELL 13
+LSTM.ipynb:cell13:18: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+CELL 14
+CELL 15
+CELL 16
+--- LSTM (base, RV-only, hidden=60) ---
+  QLIKE loss: 0.034648211109218674
+  MSE: 0.010439923445497865
+
+--- LSTMX (extended, 11 features, hidden=50) ---
+  QLIKE loss: 0.03127573307931894
+  MSE: 0.008790850026005078
+EXECUTING classical_reservoir.ipynb
+CELL 0
+CELL 1
+CELL 2
+CELL 3
+CELL 4
+CELL 5
+CELL 6
+CELL 7
+CELL 8
+CELL 9
+Training CRL (base, RV-only, N=50) ...
+    Window 50/245
+    Window 100/245
+    Window 150/245
+    Window 200/245
+  N=50, MSE=0.009544
+Saved: results/predictions/Classical_Reservoir_learning/best_CRL(50)_predictions.csv
+CELL 10
+Training CRLX (extended, 11 features, N=20) ...
+    Window 50/245
+    Window 100/245
+    Window 150/245
+    Window 200/245
+  N=20, MSE=0.008874
+Saved: results/predictions/Classical_Reservoir_learning/best_CRLX(20)_predictions.csv
+CELL 11
+classical_reservoir.ipynb:cell11:16: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+CELL 12
+CELL 13
+--- CRL (base, RV-only, best N=50) ---
+  MSE: 0.009544
+
+--- CRLX (extended, 11 features, best N=20) ---
+  MSE: 0.008874
+EXECUTING Reservoir_Learning.ipynb
+CELL 3
+CELL 4
+CELL 5
+CELL 7
+Largest Lyapunov Exponent for 'RV': -3.69673749694055
+CELL 8
+Shape of embedded_data after embedding: (814, 3)
+CELL 9
+Reservoir_Learning.ipynb:cell9:15: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+CELL 10
+0-1 Test result: 0
+CELL 12
+Column: DP
+ADF Statistic: -2.7527226229890056
+p-value: 0.06535077209158699
+Critical Value 1%: -3.4385197724757233
+Critical Value 5%: -2.8651460209504114
+Critical Value 10%: -2.5686901720199313
+
+
+Column: EP
+ADF Statistic: -3.69439551003079
+p-value: 0.004192680498176978
+Critical Value 1%: -3.4384589869479023
+Critical Value 5%: -2.8651192271940693
+Critical Value 10%: -2.5686758988725416
+
+
+Column: MKT
+ADF Statistic: -26.390293249392222
+p-value: 0.0
+Critical Value 1%: -3.438399099271788
+Critical Value 5%: -2.8650928286782857
+Critical Value 10%: -2.568661836350634
+
+
+Column: SMB
+ADF Statistic: -16.94049575493534
+p-value: 9.625622516461199e-30
+Critical Value 1%: -3.4384189633001956
+Critical Value 5%: -2.86510158480911
+Critical Value 10%: -2.568666500743605
+
+
+Column: HML
+ADF Statistic: -24.20913407078814
+p-value: 0.0
+Critical Value 1%: -3.438399099271788
+Critical Value 5%: -2.8650928286782857
+Critical Value 10%: -2.568661836350634
+
+
+Column: TB
+ADF Statistic: -2.0172723697575723
+p-value: 0.2790514931120656
+Critical Value 1%: -3.4386126789104074
+Critical Value 5%: -2.865186972298872
+Critical Value 10%: -2.5687119871327146
+
+
+Column: DEF
+ADF Statistic: -3.4881968420069307
+p-value: 0.008295449150020515
+Critical Value 1%: -3.4385711275998583
+Critical Value 5%: -2.8651686574447375
+Critical Value 10%: -2.568702230639255
+
+
+Column: IP
+ADF Statistic: -9.028865918219518
+p-value: 5.514331818114195e-15
+Critical Value 1%: -3.4385299921076995
+Critical Value 5%: -2.8651505256266865
+Critical Value 10%: -2.568692571687987
+
+
+Column: INF
+ADF Statistic: -3.3396258727294827
+p-value: 0.013197482471669809
+Critical Value 1%: -3.4385402373395473
+Critical Value 5%: -2.8651550415718114
+Critical Value 10%: -2.5686949773613197
+
+
+Column: RV
+ADF Statistic: -5.64882172182697
+p-value: 9.969124476280015e-07
+Critical Value 1%: -3.4384389256151358
+Critical Value 5%: -2.8651103842072048
+Critical Value 10%: -2.568671188193778
+
+
+Column: STR
+ADF Statistic: -21.545428021821632
+p-value: 0.0
+Critical Value 1%: -3.4384090190455994
+Critical Value 5%: -2.865097201355259
+Critical Value 10%: -2.5686641656756155
+
+
+Column: RV_q
+ADF Statistic: -4.030010419517729
+p-value: 0.0012612686412133637
+Critical Value 1%: -3.4385711275998583
+Critical Value 5%: -2.8651686574447375
+Critical Value 10%: -2.568702230639255
+
+
+Column: RV_a
+ADF Statistic: -7.580967603802048
+p-value: 2.682639304886675e-11
+Critical Value 1%: -3.438448943858302
+Critical Value 5%: -2.8651148002318227
+Critical Value 10%: -2.568673540618808
+
+
+Column: RV1
+ADF Statistic: -5.715757697172714
+p-value: 7.127490117973191e-07
+Critical Value 1%: -3.4384389256151358
+Critical Value 5%: -2.8651103842072048
+Critical Value 10%: -2.568671188193778
+
+
+Column: RV2
+ADF Statistic: -5.750955059836912
+p-value: 5.968294478915858e-07
+Critical Value 1%: -3.4384389256151358
+Critical Value 5%: -2.8651103842072048
+Critical Value 10%: -2.568671188193778
+
+
+             diff_DP        EP       MKT  ...  RV_a       RV1       RV2
+Date                                      ...
+1950-01-31       NaN  0.920848  0.267921  ...   0.0  0.000000  0.000000
+1950-02-28 -0.011058  0.908834  0.256736  ...   0.0 -0.633313  0.000000
+1950-03-31  0.000000  0.908127  0.245552  ...   0.0 -0.743170 -0.633313
+1950-04-30 -0.020537  0.903887  0.381800  ...   0.0 -0.725580 -0.743170
+1950-05-31 -0.025276  0.894700  0.400610  ...   0.0 -0.672015 -0.725580
+
+[5 rows x 15 columns]
+CELL 13
+CELL 14
+CELL 17
+CELL 18
+CELL 19
+Hit Rate: 0.38114754098360654
+Mean Square Error (MSE): 0.009338128374179362
+Root Mean Square Error (RMSE): 0.09663399181540294
+Mean Absolute Error (MAE): 0.07498086975729325
+Mean Absolute Percentage Error (MAPE): 18.246948278035056%
+CELL 20
+Reservoir_Learning.ipynb:cell20:15: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+CELL 21
+QLIKE Loss: 5.6170008875686275
+CELL 22
+CELL 24
+CELL 25
+CELL 26
+Hit Rate: 0.38114754098360654
+Mean Square Error (MSE): 0.008458101886848977
+Root Mean Square Error (RMSE): 0.09196793945092484
+Mean Absolute Error (MAE): 0.07080646363798068
+Mean Absolute Percentage Error (MAPE): 16.593146090970563%
+CELL 27
+Reservoir_Learning.ipynb:cell27:15: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+CELL 28
+QLIKE Loss: 5.252814958118161
+CELL 30
+AR(1) Model Metrics:
+Hit Rate: 0.38934426229508196
+Mean Square Error (MSE): 0.010514784332564805
+Root Mean Square Error (RMSE): 0.10254162243969424
+Mean Absolute Error (MAE): 0.07820602576957887
+Mean Absolute Percentage Error (MAPE): 18.8418991481117%
+
+AR(3) Model Metrics:
+Hit Rate: 0.38934426229508196
+Mean Square Error (MSE): 0.009527695351671197
+Root Mean Square Error (RMSE): 0.0976099142078877
+Mean Absolute Error (MAE): 0.07528660787799855
+Mean Absolute Percentage Error (MAPE): 18.318258844893762%
+CELL 31
+Reservoir_Learning.ipynb:cell31:15: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+CELL 32
+QLIKE Loss: 5.946754119995899
+CELL 33
+CELL 34
+QLIKE Loss: 5.626389114370614
+CELL 37
+ARMAX Model Metrics:
+Hit Rate: 0.45901639344262296
+Mean Square Error (MSE): 0.008391884977743475
+Root Mean Square Error (RMSE): 0.09160723212576327
+Mean Absolute Error (MAE): 0.06923950214999035
+Mean Absolute Percentage Error (MAPE): 16.38185853280601%
+CELL 38
+CELL 39
+Reservoir_Learning.ipynb:cell39:15: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+CELL 40
+QLIKE Loss: 5.61510089704153
+CELL 41
+QR1: range=[-0.7332, -0.1660], mean=-0.5397
+QR2: range=[-0.7548, -0.1172], mean=-0.5509
+CELL 42
+CELL 43
+CELL 44
+Loading CRL: results/predictions/Classical_Reservoir_learning/best_CRL(50)_predictions.csv
+Loading CRLX: results/predictions/Classical_Reservoir_learning/best_CRLX(20)_predictions.csv
+CELL 45
+MSE MCS included models: ['ARMAX', 'CRLX', 'HAR', 'HARX', 'LSTMX', 'QR1', 'QR2']
+MSE MCS p-values:
+            Pvalue
+Model name
+AR1         0.0035
+LSTM        0.0100
+CRL         0.0343
+AR3         0.0357
+HAR         0.0754
+CRLX        0.3825
+LSTMX       0.6136
+HARX        0.9874
+QR1         0.9874
+ARMAX       0.9874
+QR2         1.0000
+CELL 46
+CELL 47
+CELL 48
+QLIKE MCS included models: ['AR1', 'AR3', 'ARMAX', 'CRL', 'CRLX', 'HAR', 'HARX', 'LSTM', 'LSTMX', 'QR1', 'QR2']
+QLIKE MCS p-values:
+            Pvalue
+Model name
+AR1         0.0642
+LSTM        0.2678
+CRL         0.2965
+AR3         0.2975
+HAR         0.4188
+LSTMX       0.4621
+CRLX        0.5785
+ARMAX       0.6368
+QR1         0.6368
+HARX        0.6368
+QR2         1.0000
+CELL 49
+CELL 50
+CELL 51
+DM test (HAR vs HARX): stat=2.3383
+CELL 52
+CELL 53
+CELL 54
+CELL 55

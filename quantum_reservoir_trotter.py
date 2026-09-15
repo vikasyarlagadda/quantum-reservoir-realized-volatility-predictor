@@ -229,7 +229,7 @@ def quantum_reservoir_trotter(
     K_delay      : int,
     virtual_node : int,
     nqubit       : int,
-    n_trotter    : int = 4,
+    n_trotter    : int = 1,
 ) -> np.ndarray:
     """
     Run the quantum reservoir simulation using Trotterized circuits.
@@ -263,8 +263,13 @@ def quantum_reservoir_trotter(
     N         = nqubit
     n_samples = len(data)
 
-    # Build Trotterized circuits once — reused for all 816 time steps
+    # Build Trotterized circuits and convert to Operators once —
+    # Operator(circuit) computes the unitary matrix upfront so each
+    # evolve() call is a single matrix multiply, matching the speed
+    # of the exact version in quantum_reservoir_qiskit.py
     U_circ, dU_circ = build_trotter_evolution(nqubit, J, tau, n_trotter, virtual_node)
+    U_op  = Operator(U_circ)
+    dU_op = Operator(dU_circ)
 
     observables = build_z_observables(nqubit)
     input_qargs = list(range(n_input))
@@ -287,14 +292,14 @@ def quantum_reservoir_trotter(
 
             if k != 1:
                 # Intermediate step — evolve with Trotterized U, partial trace
-                rho_joint  = rho_joint.evolve(U_circ)
+                rho_joint  = rho_joint.evolve(U_op)
                 rho_hidden = partial_trace(rho_joint, input_qargs)
 
             else:
                 # Final step — evolve with Trotterized dU, measure Z on all qubits
                 it = 0
                 for _ in range(virtual_node):
-                    rho_joint = rho_joint.evolve(dU_circ)
+                    rho_joint = rho_joint.evolve(dU_op)
                     for obs in observables:
                         output[it, l] = rho_joint.expectation_value(obs).real
                         it += 1
@@ -422,4 +427,4 @@ def run_trotter_simulation(
 # ============================================================
 
 if __name__ == "__main__":
-    run_trotter_simulation(n_trotter=4)
+    run_trotter_simulation(n_trotter=2)

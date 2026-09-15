@@ -1,0 +1,11 @@
+{
+  "prediction_sha256": "991a4bb584effb30a0f44bbd86c1fc06ec3d0dca94f271d22d59faf9de988a87",
+  "report_sha256": "7f80ee645f9a2db811f9210b73df4a348f713bb3e4cf4bf4548163c8e5faac31",
+  "report_source_sha256": "d8d1e6f2abc847c41fa32594e4820cb8febbb59961d2ac838935721fed8cd1d0",
+  "records": 7560,
+  "failures": 2,
+  "scored_months": 104,
+  "mcs_reps": 10000,
+  "block_length": 6,
+  "seed": 0
+}

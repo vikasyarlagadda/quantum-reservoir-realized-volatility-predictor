@@ -1,0 +1,771 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Current-market quantum reservoir results</title><style>body{margin:0;background:#f4f6f9;color:#172537;font:16px/1.65 system-ui,sans-serif}main{max-width:1100px;margin:36px auto;padding:40px;background:white;border-radius:12px}h1{font-size:34px;line-height:1.2;color:#16324f}h2{margin-top:40px;border-top:1px solid #dce3eb;padding-top:24px}h3{color:#314b69}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0}th,td{padding:8px 10px;border-bottom:1px solid #e1e6ed;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#edf2f7}tr:nth-child(even){background:#f8fafc}img{width:100%;height:auto}a{color:#265e9e}code{background:#eef2f7;padding:2px 5px;border-radius:4px}@media(max-width:800px){main{margin:0;padding:20px}table{display:block;overflow:auto}}</style><main><h1>Current-market quantum reservoir results</h1>
+<p>Evaluation: <strong>2018-01-31 through 2026-08-31</strong>. Final-year case study: <strong>2025-09 through 2026-08</strong>.</p>
+<h2>Results</h2>
+<p>Models below have every required scored prediction. Results average losses across seeds; seeds are not extra market observations. ARMAX or other incomplete results are reported separately, with a common-date comparison where available.</p>
+<p><strong>571-month window:</strong> CRLX has the lowest mean log-RV MSE (0.17098). QR1 MSE is 8.4% lower than HAR. QR2 MSE is 5.9% lower than HAR.</p>
+<p><strong>120-month window:</strong> AR1 has the lowest mean log-RV MSE (0.18236). QR1 MSE is 3.4% lower than HAR. QR2 MSE is 12.5% higher than HAR.</p>
+<h3>Final-year interpretation</h3>
+<p>With 571 months of training, <strong>HAR</strong> has the lowest final-year log-RV MSE (0.08551). QR1: 0.09424. QR2: 0.08891.</p>
+<p>With 120 months of training, <strong>LSTMX</strong> has the lowest final-year log-RV MSE (0.06770). QR1: 0.10371. QR2: 0.11147.</p>
+<p>The quantum models are competitive in the longer retrospective comparison, but neither has the lowest error in the final twelve months. The reported MCS results do not establish a uniquely superior quantum model. Differences across the two training windows describe this fixed experiment and do not justify selecting a window after observing the final year.</p>
+<h3>post2017</h3>
+<table>
+<thead>
+<tr>
+  <th>window</th>
+  <th>model</th>
+  <th>mse_log_rv</th>
+  <th>mae_log_rv</th>
+  <th>qlike_variance</th>
+  <th>directional_accuracy</th>
+  <th>mse_seed_std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>120</td>
+  <td>AR1</td>
+  <td>0.18236</td>
+  <td>0.326282</td>
+  <td>0.72663</td>
+  <td>0.701923</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>QR1</td>
+  <td>0.18587</td>
+  <td>0.33053</td>
+  <td>0.667172</td>
+  <td>0.653846</td>
+  <td>0.00257926</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>HARX</td>
+  <td>0.187691</td>
+  <td>0.328874</td>
+  <td>0.671819</td>
+  <td>0.682692</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>HAR</td>
+  <td>0.192466</td>
+  <td>0.33334</td>
+  <td>0.821286</td>
+  <td>0.653846</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>CRL</td>
+  <td>0.193196</td>
+  <td>0.333962</td>
+  <td>0.79878</td>
+  <td>0.653846</td>
+  <td>0.000108096</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>AR3</td>
+  <td>0.193255</td>
+  <td>0.333939</td>
+  <td>0.800531</td>
+  <td>0.653846</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>ARMAX</td>
+  <td>0.196522</td>
+  <td>0.347109</td>
+  <td>0.65481</td>
+  <td>0.653846</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>CRLX</td>
+  <td>0.202915</td>
+  <td>0.348296</td>
+  <td>0.757332</td>
+  <td>0.634615</td>
+  <td>0.00678295</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>QR2</td>
+  <td>0.216499</td>
+  <td>0.355652</td>
+  <td>0.766599</td>
+  <td>0.646154</td>
+  <td>0.00426827</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>Persistence</td>
+  <td>0.228674</td>
+  <td>0.378301</td>
+  <td>0.718946</td>
+  <td>0.0673077</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>LSTMX</td>
+  <td>0.230279</td>
+  <td>0.356291</td>
+  <td>1.17468</td>
+  <td>0.676923</td>
+  <td>0.0017752</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>LSTM</td>
+  <td>0.241656</td>
+  <td>0.366987</td>
+  <td>1.21302</td>
+  <td>0.659615</td>
+  <td>0.0026659</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>CRLX</td>
+  <td>0.170985</td>
+  <td>0.319831</td>
+  <td>0.609408</td>
+  <td>0.648077</td>
+  <td>0.001523</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>QR1</td>
+  <td>0.171392</td>
+  <td>0.316781</td>
+  <td>0.595298</td>
+  <td>0.657692</td>
+  <td>0.000509451</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>HARX</td>
+  <td>0.173748</td>
+  <td>0.316407</td>
+  <td>0.651397</td>
+  <td>0.644231</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>AR1</td>
+  <td>0.175715</td>
+  <td>0.325133</td>
+  <td>0.591646</td>
+  <td>0.682692</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>QR2</td>
+  <td>0.17602</td>
+  <td>0.320737</td>
+  <td>0.632227</td>
+  <td>0.659615</td>
+  <td>0.00205254</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>LSTMX</td>
+  <td>0.178195</td>
+  <td>0.320938</td>
+  <td>0.672357</td>
+  <td>0.663462</td>
+  <td>0.00510516</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>HAR</td>
+  <td>0.187128</td>
+  <td>0.329459</td>
+  <td>0.726565</td>
+  <td>0.644231</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>AR3</td>
+  <td>0.187819</td>
+  <td>0.330074</td>
+  <td>0.705361</td>
+  <td>0.663462</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>CRL</td>
+  <td>0.187854</td>
+  <td>0.329907</td>
+  <td>0.706445</td>
+  <td>0.673077</td>
+  <td>7.64126e-05</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>LSTM</td>
+  <td>0.202591</td>
+  <td>0.342583</td>
+  <td>0.821823</td>
+  <td>0.634615</td>
+  <td>0.0034622</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>Persistence</td>
+  <td>0.228674</td>
+  <td>0.378301</td>
+  <td>0.718946</td>
+  <td>0.0673077</td>
+  <td>0</td>
+</tr>
+</tbody>
+</table>
+<h3>last12</h3>
+<table>
+<thead>
+<tr>
+  <th>window</th>
+  <th>model</th>
+  <th>mse_log_rv</th>
+  <th>mae_log_rv</th>
+  <th>qlike_variance</th>
+  <th>directional_accuracy</th>
+  <th>mse_seed_std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>120</td>
+  <td>LSTMX</td>
+  <td>0.0676978</td>
+  <td>0.22146</td>
+  <td>0.137647</td>
+  <td>0.766667</td>
+  <td>0.00238802</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>LSTM</td>
+  <td>0.0692425</td>
+  <td>0.229288</td>
+  <td>0.13845</td>
+  <td>0.7</td>
+  <td>0.00255252</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>ARMAX</td>
+  <td>0.0891341</td>
+  <td>0.258405</td>
+  <td>0.201222</td>
+  <td>0.75</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>HAR</td>
+  <td>0.0901843</td>
+  <td>0.260017</td>
+  <td>0.185482</td>
+  <td>0.666667</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>AR3</td>
+  <td>0.0917724</td>
+  <td>0.269737</td>
+  <td>0.18717</td>
+  <td>0.583333</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>AR1</td>
+  <td>0.0919337</td>
+  <td>0.261591</td>
+  <td>0.187918</td>
+  <td>0.75</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>CRL</td>
+  <td>0.091941</td>
+  <td>0.270166</td>
+  <td>0.1873</td>
+  <td>0.583333</td>
+  <td>0.000359381</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>HARX</td>
+  <td>0.0937944</td>
+  <td>0.274559</td>
+  <td>0.2077</td>
+  <td>0.75</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>QR1</td>
+  <td>0.103713</td>
+  <td>0.285435</td>
+  <td>0.230462</td>
+  <td>0.616667</td>
+  <td>0.00326719</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>QR2</td>
+  <td>0.111472</td>
+  <td>0.291007</td>
+  <td>0.261556</td>
+  <td>0.65</td>
+  <td>0.00657831</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>CRLX</td>
+  <td>0.116111</td>
+  <td>0.299724</td>
+  <td>0.246606</td>
+  <td>0.516667</td>
+  <td>0.00362449</td>
+</tr>
+<tr>
+  <td>120</td>
+  <td>Persistence</td>
+  <td>0.135859</td>
+  <td>0.324979</td>
+  <td>0.313622</td>
+  <td>0.166667</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>HAR</td>
+  <td>0.0855105</td>
+  <td>0.25713</td>
+  <td>0.17724</td>
+  <td>0.666667</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>ARMAX</td>
+  <td>0.0855635</td>
+  <td>0.25723</td>
+  <td>0.18467</td>
+  <td>0.75</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>HARX</td>
+  <td>0.0867294</td>
+  <td>0.268247</td>
+  <td>0.186679</td>
+  <td>0.75</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>CRL</td>
+  <td>0.0873286</td>
+  <td>0.268639</td>
+  <td>0.183818</td>
+  <td>0.666667</td>
+  <td>0.000366397</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>AR3</td>
+  <td>0.087668</td>
+  <td>0.26927</td>
+  <td>0.1843</td>
+  <td>0.666667</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>QR2</td>
+  <td>0.0889074</td>
+  <td>0.271903</td>
+  <td>0.191935</td>
+  <td>0.75</td>
+  <td>0.00255742</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>LSTM</td>
+  <td>0.088918</td>
+  <td>0.26818</td>
+  <td>0.188307</td>
+  <td>0.65</td>
+  <td>0.00930484</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>LSTMX</td>
+  <td>0.0914166</td>
+  <td>0.265142</td>
+  <td>0.19744</td>
+  <td>0.716667</td>
+  <td>0.00632756</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>QR1</td>
+  <td>0.0942386</td>
+  <td>0.278724</td>
+  <td>0.206549</td>
+  <td>0.75</td>
+  <td>0.00227139</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>AR1</td>
+  <td>0.0976567</td>
+  <td>0.27024</td>
+  <td>0.195617</td>
+  <td>0.75</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>CRLX</td>
+  <td>0.100462</td>
+  <td>0.288162</td>
+  <td>0.212758</td>
+  <td>0.616667</td>
+  <td>0.00533795</td>
+</tr>
+<tr>
+  <td>571</td>
+  <td>Persistence</td>
+  <td>0.135859</td>
+  <td>0.324979</td>
+  <td>0.313622</td>
+  <td>0.166667</td>
+  <td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Lines show mean volatility predictions across seeds; loss tables average each seed's loss.</p>
+<p><img src="last12_forecasts.png" alt="Forecast comparison" /></p>
+<p><img src="model_comparison.png" alt="Full-period model comparison" /></p>
+<h2>Statistical evidence</h2>
+<p>The Model Confidence Set uses 10,000 stationary-bootstrap replications, expected block length six months, and seed zero. A p-value of one does not establish unique superiority. Confidence intervals in <code>loss_difference_ci.csv</code> compare mean per-date loss against HAR, using paired resampling of dates and averaging seed losses before resampling. These intervals describe temporal uncertainty conditional on the chosen five seeds; they are not adjusted for all pairwise comparisons. Use MCS for the familywise comparison.</p>
+<table>
+<thead>
+<tr>
+  <th>model</th>
+  <th>mcs_pvalue</th>
+  <th>window</th>
+  <th>loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Persistence</td>
+  <td>0.0109</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>LSTM</td>
+  <td>0.1255</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>HAR</td>
+  <td>0.3614</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>AR3</td>
+  <td>0.4817</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>CRL</td>
+  <td>0.4817</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>QR2</td>
+  <td>0.6837</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>LSTMX</td>
+  <td>0.6837</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>HARX</td>
+  <td>0.9421</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>AR1</td>
+  <td>0.9421</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>QR1</td>
+  <td>0.9421</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>CRLX</td>
+  <td>1</td>
+  <td>571</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>LSTM</td>
+  <td>0.6327</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>LSTMX</td>
+  <td>0.6937</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>AR3</td>
+  <td>0.7199</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>Persistence</td>
+  <td>0.7199</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>CRL</td>
+  <td>0.7199</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>HAR</td>
+  <td>0.7199</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>QR2</td>
+  <td>0.7199</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>HARX</td>
+  <td>0.7199</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>CRLX</td>
+  <td>0.7199</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>QR1</td>
+  <td>0.9423</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>AR1</td>
+  <td>1</td>
+  <td>571</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>QR2</td>
+  <td>0.1503</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>CRLX</td>
+  <td>0.1503</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>LSTM</td>
+  <td>0.1944</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>Persistence</td>
+  <td>0.2824</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>LSTMX</td>
+  <td>0.2824</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>AR3</td>
+  <td>0.7634</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>CRL</td>
+  <td>0.7634</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>HAR</td>
+  <td>0.7634</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>ARMAX</td>
+  <td>0.7634</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>HARX</td>
+  <td>0.9187</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>QR1</td>
+  <td>0.9187</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>AR1</td>
+  <td>1</td>
+  <td>120</td>
+  <td>mse_log_rv</td>
+</tr>
+<tr>
+  <td>QR2</td>
+  <td>0.1043</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>CRLX</td>
+  <td>0.1249</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>LSTMX</td>
+  <td>0.366</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>LSTM</td>
+  <td>0.3981</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>AR3</td>
+  <td>0.4958</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>CRL</td>
+  <td>0.4971</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>HAR</td>
+  <td>0.5952</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>Persistence</td>
+  <td>0.9586</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>AR1</td>
+  <td>0.9586</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>QR1</td>
+  <td>0.9586</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>HARX</td>
+  <td>0.9586</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+<tr>
+  <td>ARMAX</td>
+  <td>1</td>
+  <td>120</td>
+  <td>qlike_variance</td>
+</tr>
+</tbody>
+</table>
+<h2>Data, timing, and adaptation</h2>
+<p>The dataset was rebuilt from daily S&amp;P 500 closes. Monthly realized volatility is the square root of summed squared daily log returns. Forecast month t uses three completed monthly input vectors ending at t−1. Targets use log volatility; QLIKE compares positive variances with no absolute-log substitution. Input scaling is calibrated through 2017, frozen, and clipped; targets are never clipped. All models receive the same training target dates within each window. Deterministic models run once; reservoir/LSTM models use seeds 0–4.</p>
+<p>The seven inputs are log RV, trailing three- and twelve-month mean log RV, monthly log return, downside variance share, maximum absolute daily return, and log close range. QR1 and QR2 use identical inputs and paired coupling matrices; only temporal readout count changes. Economic predictors are replaced explicitly. These are modern extensions, not unchanged author models.</p>
+<p>The 571-month window preserves the original training horizon. The 120-month window tests more recent estimation history. Both are refitted each month. Neither window is selected using final-year performance. Twelve monthly forecasts are a descriptive case study, not strong standalone evidence of superiority.</p>
+<p>Snapshots preserve Yahoo/FRED payloads and hashes. FRED-sourced closes replace seven material provider discrepancies in the canonical series; every change is in <code>price_corrections.csv</code>. January 1950 is the sole legacy target difference above 1e-8; see the audit report. The initial partial return month is discarded before calculating rolling features.</p>
+<h2>Execution and limitations</h2>
+<p>Recorded forecasts: 7560; failed model/origin records: <strong>2</strong>. The failed records and their errors are in <code>failures.csv</code>. No model substitutes another model's predictions.</p>
+<p>A forecast for September 2026, based only on information through August 31, is saved in <code>unscored_forecasts.csv</code>. September daily observations remain in the data snapshot but are excluded from training and scoring. These are retrospective simulations using the retrieved historical data, not forecasts recorded live at their historical origins.</p>
+<p>The quantum models use ideal local density-matrix simulation and exact expectation values. This study makes no quantum-hardware speedup or trading-profit claim. Legacy replication, including historical loss definitions, lives in the separate legacy run.</p>
+<h2>Reproduce</h2>
+<p>Run <code>python run_study.py report --run results/modern-2026-09-14</code> to regenerate this report from checkpoints. <code>manifest.json</code> records source hashes, dataset identity, versions, seeds, dates, and protocol; resume rejects a changed identity. <code>metrics_by_seed.csv</code>, <code>losses.csv</code>, <code>mcs.csv</code>, and the prediction files supply the underlying evidence.</p>
+<p>Sources: <a href="https://arxiv.org/html/2505.13933v2">base paper</a>, <a href="https://fred.stlouisfed.org/series/SP500">FRED S&amp;P 500</a>, <a href="https://bashtage.github.io/arch/multiple-comparison/multiple-comparison_examples.html">MCS documentation</a>.</p>
+</main></html>

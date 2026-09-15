@@ -1,0 +1,17 @@
+{
+  "executed_source_commit": "6e7ddf01f91388c2a011b407f3a136f48589bf90",
+  "verified_source_files": [
+    "preprocess.py",
+    "run_qrc_simulation.py",
+    "quantum_reservoir_qiskit.py",
+    "quantum_reservoir_trotter.py",
+    "LSTM.ipynb",
+    "classical_reservoir.ipynb",
+    "Reservoir_Learning.ipynb",
+    "data/Data.CSV",
+    "data/coeff_10.jld2",
+    "data/predict_result.csv"
+  ],
+  "upstream_integration": "origin/main 4cc490263b0efbb2d9604f859ad535f835bec5f2 merged after execution began; exact simulator AST identical, Trotter changes unused",
+  "resume_instruction": "Use the executed source commit for strict checkpoint resume. Source hashes intentionally reject later file changes, including whitespace."
+}

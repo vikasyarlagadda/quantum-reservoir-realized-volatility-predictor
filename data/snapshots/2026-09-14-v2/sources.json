@@ -1,0 +1,14 @@
+{
+  "yahoo.json": {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=-633830400&period2=1789430400&interval=1d",
+    "sha256": "cd466ab4141af7ee60783a19c138ee9ee22493f97fe06a8008f6cfe1b9795d3b",
+    "retrieved_at": "2026-09-15T02:04:45.260459661+00:00",
+    "timestamp_note": "raw file creation timestamp; initial validation failed"
+  },
+  "fred.csv": {
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500",
+    "sha256": "df5e6e554eff291c27982e9a9054f4728e89c00dbfb7c72cc184b7342c707afe",
+    "retrieved_at": "2026-09-15T02:04:45.360948563+00:00",
+    "timestamp_note": "raw file creation timestamp; initial validation failed"
+  }
+}

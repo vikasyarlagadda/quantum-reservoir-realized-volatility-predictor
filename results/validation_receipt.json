@@ -1,0 +1,15 @@
+{
+  "unit_tests_passed": 10,
+  "dependency_check": "no broken requirements",
+  "modern_records": 7560,
+  "modern_scored_months": 104,
+  "modern_unscored_records": 72,
+  "modern_failed_fits": 2,
+  "legacy_records": 2695,
+  "legacy_models": 11,
+  "legacy_months": 245,
+  "notebook": "Current_Market_Results.ipynb schema valid and every code cell executed",
+  "figures": "both final PNGs visually inspected; monthly labels verified",
+  "resume_validation": "resume_validation.json",
+  "published_artifact_validation": "publication_validation.json"
+}

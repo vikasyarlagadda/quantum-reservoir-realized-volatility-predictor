@@ -460,3 +460,4 @@ def hitrate(pred, actual):
     pred_dir    = np.sign(np.diff(pred_full))
     actual_dir  = np.sign(np.diff(actual_full))
     return float(np.mean(pred_dir == actual_dir))
+

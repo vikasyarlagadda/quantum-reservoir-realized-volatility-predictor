@@ -1,0 +1,26 @@
+{
+  "identity": "30d8a037387ca5d3572817d56abeb86b6c132dd8d0a5293f9c8c71d9ce1e1451",
+  "config": {
+    "protocol": "legacy-executed-v1",
+    "seed": 0,
+    "source_hashes": {
+      "preprocess.py": "7f17b53f56444c59680447535be5e7fb85d510c0dee82ca6d2af015ec6033bb7",
+      "run_qrc_simulation.py": "af414ec4771c22599aed917ae687b06049eac68ef92d2e06fa8ec36ec6050287",
+      "quantum_reservoir_qiskit.py": "6d9975ee6f220e0cb8462dd54ba6362c1eadb56a8c6f909ec4d9c6479b120a95",
+      "quantum_reservoir_trotter.py": "90d40cf0057df19834d2e7ce99fc8c94b1de4edd5e134d4420372623f4278224",
+      "LSTM.ipynb": "020ed0bb69c2d089870568fb3817f636a58ea39e4e09dd35456609039ad48ff9",
+      "classical_reservoir.ipynb": "4b86ade2c1730944d323d13fc0d0558c83cb2775665dc10aedaaea3bed0e9775",
+      "Reservoir_Learning.ipynb": "c97209615df261601ea16db622ad5f82d2c8138297665b020e2d12a647595814",
+      "data/Data.CSV": "40982cc705dee23bd67ef4a3337424cd3288e05a944371108e0b566001be323c",
+      "data/coeff_10.jld2": "c4b90e6fb79530e34f2a72995a44b9a494146a78f6806b717b529281f41c66dc",
+      "data/predict_result.csv": "58d9a227c19e89e23e5ae9b993dc6b90ced8f25fbb2a00d9fa68b236af90249a"
+    },
+    "runner_sha256": "09d8c01b4b595d84a863ab7b3f07d07ab5c62835dd48ea350a0959929648a050",
+    "changes": [
+      "isolated output paths",
+      "fixed numpy/torch/reservoir/MCS seeds",
+      "master loads freshly simulated quantum predictions"
+    ]
+  },
+  "created_at": "2026-09-15T02:12:54.028416+00:00"
+}

@@ -1,31 +1,35 @@
 # ============================================================
 # Core scientific stack
 # ============================================================
-numpy>=1.26
-pandas>=2.0
-scipy>=1.12
-matplotlib>=3.8
+numpy==2.4.4
+pandas==3.0.2
+scipy==1.17.1
+matplotlib==3.10.8
 
 # ============================================================
 # Quantum (Qiskit — for quantum_reservoir_qiskit.py and run_qrc_simulation.py)
 # ============================================================
-qiskit>=1.0
-qiskit-aer>=0.14          # local statevector / density matrix simulator
-h5py>=3.10                # reads coeff_10.jld2 (JLD2 is HDF5-compatible)
+qiskit==2.3.1
+# qiskit-aer is optional; the exact simulator uses qiskit.quantum_info.
+h5py==3.16.0 # reads coeff_10.jld2 (JLD2 is HDF5-compatible)
 
 # ============================================================
 # Neural networks (LSTM.ipynb)
 # ============================================================
-torch>=2.2                # PyTorch — CPU build is fine for this project
+torch==2.11.0 # PyTorch — CPU build is fine for this project
 
 # ============================================================
 # Classical reservoir (classical_reservoir.ipynb)
 # ============================================================
-reservoirpy>=0.4
+reservoirpy==0.4.1
 
 # ============================================================
 # Time-series / econometrics (Reservoir_Learning.ipynb + preprocess.py)
 # ============================================================
-statsmodels>=0.14         # OLS, AutoReg, ARIMA, ADF test
-scikit-learn>=1.4         # mean_squared_error, mean_absolute_error
-arch>=6.3                 # Model Confidence Set (MCS) and bootstrap tests
+statsmodels==0.14.6 # OLS, AutoReg, ARIMA, ADF test
+scikit-learn==1.8.0 # mean_squared_error, mean_absolute_error
+arch==8.0.0 # Model Confidence Set (MCS) and bootstrap tests
+exchange-calendars==4.13.2
+ipython==9.10.1
+nbformat==5.10.4
+mistune==3.2.0             # HTML result report rendering
